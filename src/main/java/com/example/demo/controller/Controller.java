@@ -17,7 +17,17 @@ public class Controller {
     }
 
     @GetMapping("/helloservice/{pathVariable}")
-    public String index(@PathVariable("pathVariable") String variable) {
+    public String helloWithPath(@PathVariable("pathVariable") String variable) {
         return sampleService.getSampleResponse(variable);
+    }
+
+    @GetMapping("/codetype")
+    public String getCodeType() {
+        return sampleService.getCustomConfigurationValue("codetype");
+    }
+
+    @GetMapping("/author")
+    public String getCodeAuthor() {
+        return sampleService.getCustomConfigurationValue("author");
     }
 }
